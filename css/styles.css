@@ -1,0 +1,296 @@
+
+:root {
+    --verde-ruta: #1E7A4F;
+    --naranja-pedal: #F39A2B;
+    --azul-noche: #14213D;
+    --crema: #FAF6EF;
+    --gris-asfalto: #5B6470;
+    --blanco: #FFFFFF;
+
+    /* Tipografías */
+    --fuente-titulos: 'Montserrat', sans-serif;
+    --fuente-texto: 'Open Sans', sans-serif;
+
+    /* Escala de espaciado  */
+    --espacio-sm: 0.5rem;  
+    --espacio-md: 1rem;     
+    --espacio-lg: 2rem;     
+    --espacio-xl: 4rem;     
+}
+
+/* =================================================================     
+   2. ESTILOS BASE Y MODELO DE CAJA
+   ================================================================= */
+/* Box-sizing global para incluir relleno y borde */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fuente-texto);
+    color: var(--gris-asfalto);
+    background-color: var(--crema);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Contenedor principal centrado con ancho máximo en rem */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--espacio-lg);
+}
+
+/* Portada con altura mínima en vh */
+#quienes-somos {
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Títulos con tipografía */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--fuente-titulos);
+    color: var(--azul-noche);
+    margin-top: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* =================================================================     
+   3. ENCABEZADO Y NAVEGACIÓN 
+   ================================================================= */
+header {
+    background-color: var(--azul-noche);
+    color: var(--blanco);
+    padding: var(--espacio-md) var(--espacio-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+header h1 {
+    color: var(--blanco);
+    margin: 0;
+}
+
+/* Menú en línea */
+#menu {
+    list-style: none;
+    display: flex;
+    gap: var(--espacio-md);
+    margin: 0;
+    padding: 0;
+}
+
+#menu a {
+    color: var(--blanco);
+    text-decoration: none;
+    font-weight: 400;
+    padding: var(--espacio-sm) var(--espacio-md);
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+/* Estados del menú (:hover y :focus) */
+#menu a:hover, 
+#menu a:focus {
+    background-color: var(--verde-ruta);
+    outline: none;
+}
+
+/* Clase activo corregida */
+#menu a.activo {
+    color: var(--blanco);
+    background-color: var(--verde-ruta);
+    font-weight: 600;
+}
+
+/* =================================================================     
+   4. TARJETAS DE SERVICIOS Y COMPONENTES 
+   ================================================================= */
+#servicios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--espacio-md);
+    margin-top: var(--espacio-lg);
+    padding-top: 20px;
+}
+
+#servicios h2 {
+    grid-column: 1 / -1;
+    margin-bottom: 15px;
+}
+
+article {
+    background-color: var(--blanco);
+    border: 1px solid rgba(91, 100, 112, 0.2);
+    border-radius: 8px;
+    padding: var(--espacio-md);
+    position: relative; /* Necesario para la etiqueta absoluta */
+}
+
+/* Etiqueta de nuevo */
+.etiqueta-nuevo {
+    position: absolute;
+    top: var(--espacio-md);
+    right: var(--espacio-md);
+    background-color: var(--naranja-pedal);
+    color: var(--azul-noche);
+    font-family: var(--fuente-titulos);
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.2rem var(--espacio-sm);
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+/* =================================================================     
+   5. TABLAS DE TARIFAS 
+   ================================================================= */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: var(--espacio-lg);
+    background-color: var(--blanco);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+caption {
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    color: var(--azul-noche);
+    margin-bottom: var(--espacio-sm);
+    text-align: left;
+}
+
+th, td {
+    padding: var(--espacio-md);
+    border-bottom: 1px solid rgba(91, 100, 112, 0.15);
+    text-align: left;
+}
+
+th {
+    background-color: var(--verde-ruta);
+    color: var(--blanco);
+}
+
+/* =================================================================     
+   6. FORMULARIO DE RESERVAS 
+   ================================================================= */
+form {
+    background-color: var(--blanco);
+    padding: var(--espacio-lg);
+    border-radius: 8px;
+    border: 1px solid rgba(91, 100, 112, 0.2);
+}
+
+fieldset {
+    border: 1px solid rgba(91, 100, 112, 0.3);
+    border-radius: 6px;
+    padding: var(--espacio-md);
+    margin-bottom: var(--espacio-lg);
+}
+
+legend {
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    color: var(--azul-noche);
+    padding: 0 var(--espacio-sm);
+}
+
+label {
+    display: block;
+    margin-bottom: var(--espacio-sm);
+    font-weight: 600;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: var(--espacio-sm);
+    border: 1px solid var(--gris-asfalto);
+    border-radius: 4px;
+    font-family: var(--fuente-texto);
+    margin-bottom: var(--espacio-md);
+}
+
+/* Indicador de foco visible y accesible */
+input:focus, select:focus, textarea:focus {
+    outline: 3px solid var(--naranja-pedal);
+    outline-offset: 2px;
+    border-color: var(--azul-noche);
+}
+
+/* Botones y Llamados a la Acción (CTA) */
+button[type="submit"],
+.btn-cta {
+    background-color: var(--verde-ruta);
+    color: var(--blanco);
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    padding: var(--espacio-sm) var(--espacio-lg);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover,
+button[type="submit"]:focus,
+.btn-cta:hover,
+.btn-cta:focus {
+    background-color: #145939; /* Tono más oscuro de verde */
+    outline: 3px solid var(--naranja-pedal);
+}
+
+/* =================================================================     
+   7. BOTÓN FLOTANTE DE WHATSAPP
+   ================================================================= */
+.whatsapp-flotante {
+    position: fixed;
+    bottom: var(--espacio-lg);
+    right: var(--espacio-lg);
+    background-color: #25D366;
+    color: var(--blanco);
+    padding: var(--espacio-sm) var(--espacio-md);
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.whatsapp-flotante:hover,
+.whatsapp-flotante:focus {
+    background-color: #1EBE5D;
+    outline: 3px solid var(--azul-noche);
+}
+
+/* =================================================================     
+   8. PIE DE PÁGINA (FOOTER)
+ */
+footer {
+    background-color: var(--azul-noche);
+    color: var(--blanco);
+    text-align: center;
+    padding: var(--espacio-lg);
+    margin-top: var(--espacio-xl);
+}
